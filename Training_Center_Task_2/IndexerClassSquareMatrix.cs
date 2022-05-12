@@ -15,8 +15,6 @@ namespace Training_Center_Task_2
         public IndexerClassSquareMatrix(int size)
         {
             this.Size = size;
-            this.Row = row;
-            this.Col = col;
             this.matrixValues = new T[size * size];
         }
 
@@ -47,22 +45,23 @@ namespace Training_Center_Task_2
             }
         }
 
-        public int CalculatePosition(int row, int col, int size)
-        {
-            int index = 0;
-            index = Row * Size + Col;
-            return index;
-        }
-
-        public T this[int i]
+        public T this[int row, int col]
         {
             get
             {
-                return matrixValues[i];
+                return matrixValues[row * Size + col];
             }
             set
             {
-                matrixValues[i] = value;
+                if (row < 0 || row >= Size)
+                {
+                    throw new ArgumentOutOfRangeException(ExceptionMessages.RowOutOfRange);
+                }
+                if (col < 0 || col >= Size)
+                {
+                    throw new ArgumentOutOfRangeException(ExceptionMessages.ColOutOfRange);
+                }
+                matrixValues[row * Size + col] = value;
             }
         }
     }
