@@ -8,7 +8,7 @@ namespace Training_Center_Task_2
 {
     public abstract class BaseMatrix<T>
     {
-        private T size = default;
+        private int size = 0;
 
         public T[] CreateMatrix(int size)
         {
@@ -16,10 +16,17 @@ namespace Training_Center_Task_2
             return matrix;
         }
 
-        public T Size
+        public int Size
         {
             get { return this.size; }
-            set { this.size = value; }
+            set 
+            { 
+                if (value <= 0)
+                {
+                    throw new ArgumentOutOfRangeException(ExceptionMessages.NegativeOrZeroMatrixSize);
+                }
+                this.size = value;
+            }
         }
     }
 }
