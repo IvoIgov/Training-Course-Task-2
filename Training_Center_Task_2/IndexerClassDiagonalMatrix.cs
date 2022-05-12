@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Training_Center_Task_2
 {
-    internal class IndexerClassDiagonalMatrix
+    public class IndexerClassDiagonalMatrix
     {
     }
 }
