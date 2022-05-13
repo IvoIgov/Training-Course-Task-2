@@ -7,11 +7,20 @@
             this.MatrixValues = base.MatrixValues;
         }
 
+        public void CheckValueRelevantToMatrixTypeAndDefaultType(int row, int col, T value)
+        {
+            var valueType = value.GetType().Name;
+            var classType = typeof(T).Name;
+            if (valueType != classType)
+            {
+                throw new InvalidDataException(ExceptionMessages.ValueTypeNotMatchingMatrixType);
+            }
+        }
         public T this[int row, int col]
         {
             get
             {
-                return MatrixValues[row * Size + col];
+                return MatrixValues[(row * Size) + col];
             }
             set
             {

@@ -16,11 +16,6 @@ namespace Training_Center_Task_2
             this.Size = size;
             this.MatrixValues = new T [size * size];
         }
-        //public T[] CreateMatrix(int size)
-        //{
-        //    T[] matrix = new T[size * size];
-        //    return matrix;
-        //}
         public T[] MatrixValues { get; set; }
 
         public int Size
