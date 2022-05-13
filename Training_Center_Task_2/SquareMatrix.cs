@@ -2,10 +2,29 @@
 {
     public class SquareMatrix<T> : BaseMatrix<T>
     {
-        public T[] FillMatrix(T[] matrix)
+        public SquareMatrix(int size) : base(size)
         {
+            this.MatrixValues = base.MatrixValues;
+        }
 
-            return matrix;
+        public T this[int row, int col]
+        {
+            get
+            {
+                return MatrixValues[row * Size + col];
+            }
+            set
+            {
+                if (row < 0 || row >= base.Size)
+                {
+                    throw new ArgumentOutOfRangeException(ExceptionMessages.RowOutOfRange);
+                }
+                if (col < 0 || col >= base.Size)
+                {
+                    throw new ArgumentOutOfRangeException(ExceptionMessages.ColOutOfRange);
+                }
+                MatrixValues[row * base.Size + col] = value;
+            }
         }
     }
 }

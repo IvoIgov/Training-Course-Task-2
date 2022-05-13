@@ -8,10 +8,18 @@ namespace Training_Center_Task_2
 {
     public class DiagonalMatrix<T> : BaseMatrix<T>
     {
-        public T[] FillMatrix(T[] matrix)
+        private int size;
+        private T[] matrixValues;
+        private int row;
+        private int col;
+
+        public DiagonalMatrix(int size) : base(size)
         {
-            
-            return matrix;
         }
+        //public IndexerClassDiagonalMatrix(int size)
+        //{
+        //    this.Size = size;
+        //    this.matrixValues = new T[size * size];
+        //}
     }
 }

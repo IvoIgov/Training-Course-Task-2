@@ -8,18 +8,25 @@ namespace Training_Center_Task_2
 {
     public abstract class BaseMatrix<T>
     {
-        private int size = 0;
+        private int size;
+        private T[] matrixValues;
 
-        public T[] CreateMatrix(int size)
+        public BaseMatrix(int size)
         {
-            T[] matrix = new T[size * size];
-            return matrix;
+            this.Size = size;
+            this.MatrixValues = new T [size * size];
         }
+        //public T[] CreateMatrix(int size)
+        //{
+        //    T[] matrix = new T[size * size];
+        //    return matrix;
+        //}
+        public T[] MatrixValues { get; set; }
 
         public int Size
         {
             get { return this.size; }
-            set 
+            private set 
             { 
                 if (value <= 0)
                 {
